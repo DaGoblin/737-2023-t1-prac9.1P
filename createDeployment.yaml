@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: AuthMS
+    labels:
+        app: AuthMS
+        tier: frontend
+spec:
+    # modify replicas according to your case
+    replicas: 3
+    selector:
+        matchLabels:
+            tier: frontend
+    template:
+        metadata:
+            labels:
+                tier: frontend
+        spec:
+            containers:
+                - name: AuthMS
+                  image: s222574652/auth_ms_mongo_db:latest
+                  ports:
+                      - containerPort: 4000
+                  env:
+                      - name: MONGODB_USER
+                        value: "Phil"
+                      - name: MONGODB_PASSWORD
+                        valueFrom:
+                            secretKeyRef:
+                                key: password
+                                name: AuthMongoDB-secret

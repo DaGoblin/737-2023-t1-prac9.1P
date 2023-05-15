@@ -7,6 +7,22 @@ spec:
     - name: mongo
       port: 27017
       targetPort: 27017
+      nodePort: 3006
   clusterIP: None
   selector:
     app: mongo
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+  labels:
+    name: web
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 3005
+      targetPort: 4000
+      protocol: TCP
+  selector:
+    name: web
