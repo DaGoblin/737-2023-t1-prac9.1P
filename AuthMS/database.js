@@ -32,7 +32,8 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 let uri;
 
-uri = `mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@mongo:27017/?authMechanism=DEFAULT`;
+//uri = `mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@mongo:27017/?authMechanism=DEFAULT`;
+uri = `mongodb://mongo:27017/test`;
 // console.log(process.env.MONGODB_USER);
 // console.log(process.env.MONGODB_PASSWORD);
 
