@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+    name: mongo-pv
+spec:
+    capacity:
+        storage: 1Gi
+    accessModes:
+        - ReadWriteMany
+    local:
+        path: /run/desktop/mnt/host/c/SIT737/Week9/Storage
+    storageClassName: "authms-storage"
+    nodeAffinity:
+        required:
+            nodeSelectorTerms:
+                - matchExpressions:
+                      - key: kubernetes.io/hostname
+                        operator: In
+                        values:
+                            - docker-desktop

@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: AuthMS
+    name: auth-ms
     labels:
-        app: AuthMS
+        app: auth-ms
         tier: frontend
 spec:
     # modify replicas according to your case
@@ -17,7 +17,7 @@ spec:
                 tier: frontend
         spec:
             containers:
-                - name: AuthMS
+                - name: auth-ms
                   image: s222574652/auth_ms_mongo_db:latest
                   ports:
                       - containerPort: 4000
