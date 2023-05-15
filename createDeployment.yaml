@@ -28,4 +28,4 @@ spec:
                         valueFrom:
                             secretKeyRef:
                                 key: password
-                                name: AuthMongoDB-secret
+                                name: authmongodb-secret
