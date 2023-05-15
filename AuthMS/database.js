@@ -32,9 +32,9 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 let uri;
 
-uri = `mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@mongo:32000/?authMechanism=DEFAULT`;
-console.log(process.env.MONGODB_USER);
-console.log(process.env.MONGODB_PASSWORD);
+uri = `mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@mongo:27017/?authMechanism=DEFAULT`;
+// console.log(process.env.MONGODB_USER);
+// console.log(process.env.MONGODB_PASSWORD);
 
 mongoose
     .connect(uri, { useUnifiedTopology: true, useNewUrlParser: true })
